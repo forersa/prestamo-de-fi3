@@ -2,6 +2,7 @@ import { useContractRead } from 'wagmi'
 import { blockmakerTokenABI } from '../contracts/ABIs'
 import { Title } from './ui'
 
+
 export default function Owner() {
   const { data } = useContractRead({
     abi: blockmakerTokenABI,

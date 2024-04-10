@@ -1,14 +1,14 @@
 import { ConnectKitButton } from 'connectkit'
-
 export default function Header() {
-  return (
-    <header className="flex py-2 px-3 sm:px-8 sm:py-4 border-b justify-between items-center bg-white shadow-xs">
+
+  
+  <header className="bg-blue-400  py-2 px-3 sm:px-8 sm:py-4 flex justify-between items-center border-b shadow-xs">
       {/* Logo para mobile */}
-      <img src="/LogoBanco.jpeg" className="sm:hidden" alt="Prestamo De Fi3" width={45} />
+      <img src="/LogoBanco.jpeg" alt="PrestamoDeFi3-mobile-logo" className="sm:hidden" width={45}/>
       {/* Logo para desktop */}
-      <img src="/LogoCirculo.jpeg" className="hidden sm:flex" alt="Prestamo De Fi3" width={150} />
+      <img src="/LogoCirculo.jpeg"  alt="PrestamoDeFi3-desktop-logo" className="hidden sm:block" width={250}/>
 
       <ConnectKitButton showBalance />
-    </header>
-  )
+  </header>
+  
 }
