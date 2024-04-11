@@ -2,6 +2,8 @@ import { Button, TextInput, Title } from './ui'
 import { useState, useEffect } from 'react'
 import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from 'wagmi'
 import { blockmakerTokenABI } from '../contracts/ABIs'
+import { parseEther } from 'viem/utils'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function TransferTokensForm() {
   const [to, setTo] = useState('')
@@ -14,14 +16,14 @@ export default function TransferTokensForm() {
     args: [to, BigInt(amount * 10 ** 18)]
   })
 
-  const { data: writeData, write } = useContractWrite(config)
+  const { data, write } = useContractWrite(config)
 
   const {
     isLoading: isTransactionLoading,
     isSuccess: isTransactionSuccess,
     isError: isTransactionError
   } = useWaitForTransaction({
-    hash: writeData?.hash
+    hash: data?.hash
   })
 
   const handlerToInputChange = (event) => {
